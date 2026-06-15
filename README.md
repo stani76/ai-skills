@@ -1,46 +1,44 @@
 # ai-skills
 
-A curated collection of high-quality, reusable skills for AI Agents (Grok, Claude Projects, Cursor, Windsurf, etc.).
+A curated collection of high-quality, reusable skills for AI Agents (Grok, Claude Projects, Cursor, Windsurf, GitHub Copilot CLI, etc.).
 
 ## Purpose
 
-Collect battle-tested skills that encode expert workflows, domain knowledge, and tool integrations so agents can perform complex tasks reliably and consistently.
+Collect battle-tested skills that encode expert workflows so agents can perform complex tasks reliably.
 
 ## Repository Structure
 
 ```
-skills/               # (future) General or cross-platform skills
-
-github/                # Skills that interact with GitHub (PR reviews, issues, automation, etc.)
-  └── android-pr-review/   # Senior Android/Kotlin/Java PR reviewer with GitHub integration
+github/                     # GitHub-related skills
+  ├── pr-review/             # Senior PR reviewer — invocable as /pr-review in Copilot CLI
+  └── android-pr-review/     # Detailed Android/Kotlin/Java focused version
 ```
 
-## Available Skills
+## Key Skills
 
-### `github/android-pr-review`
+### `/pr-review` (github/pr-review)
 
-**Senior-level code review for Android, Kotlin & Java PRs**
+**Senior PR Code Review skill** — Optimized for GitHub Copilot CLI slash command.
 
-- Calibrated severity levels + excellent anti-overreporting rules
-- Mentoring tone + smart conditional output format
-- Strong Android/Kotlin/Compose/coroutines knowledge
-- **Native GitHub support**: fetch real PR diffs and post reviews/comments directly
+Invocable directly with:
+```
+/pr-review
+```
 
-**Quick start:** Tell your agent "Use the android-pr-review skill to review this PR..." or "Do a senior PR review on PR #123 in owner/repo".
+Features calibrated severity levels, excellent anti-nitpicking rules, GitHub integration (fetch diff + post reviews), and deep Android/Kotlin expertise.
 
-Full details: [github/android-pr-review/README.md](github/android-pr-review/README.md)
+Perfect default PR reviewer for teams working with Android or modern Kotlin.
+
+[Details →](github/pr-review/README.md)
+
+### android-pr-review
+
+The original detailed version under the longer name.
+
+[Details →](github/android-pr-review/README.md)
 
 ## Contributing
 
-We welcome high-quality skills!
+Add skills in category folders (e.g. `github/`). Each skill needs a `SKILL.md` with proper YAML frontmatter (`name` + `description`).
 
-1. Create a new folder under the appropriate category (e.g. `github/`, `linear/`, or top-level for general skills)
-2. Add at minimum a `SKILL.md` file following the standard skill frontmatter + instructions format
-3. Optionally add a `README.md` explaining usage and value
-4. Open a Pull Request with a clear description
-
-Skills should be practical, well-calibrated, and solve real recurring problems for AI agent users.
-
-## License
-
-MIT
+For Copilot CLI compatibility, the `name` in frontmatter determines the `/slash-command`.
