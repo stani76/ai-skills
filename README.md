@@ -10,30 +10,23 @@ Collect battle-tested skills that encode expert workflows so agents can perform 
 
 ```
 github/                     # GitHub-related skills
-  ├── pr-review/             # Senior PR reviewer — invocable as /pr-review in Copilot CLI
-  └── android-pr-review/     # Detailed Android/Kotlin/Java focused version
+  └── android-pr-review/     # Senior Android/Kotlin/Java PR reviewer
 ```
 
 ## Key Skills
 
-### `/pr-review` (github/pr-review)
-
-**Senior PR Code Review skill** — Optimized for GitHub Copilot CLI slash command.
-
-Invocable directly with:
-```
-/pr-review
-```
-
-Features calibrated severity levels, excellent anti-nitpicking rules, GitHub integration (fetch diff + post reviews), and deep Android/Kotlin expertise.
-
-Perfect default PR reviewer for teams working with Android or modern Kotlin.
-
-[Details →](github/pr-review/README.md)
-
 ### android-pr-review
 
-The original detailed version under the longer name.
+**Senior Android / Kotlin / Java PR Code Review Skill** — Fully compatible with GitHub Copilot CLI slash command `/android-pr-review`.
+
+Invocable directly with:
+
+```
+/android-pr-review
+/android-pr-review Review this PR focusing on Compose and security
+```
+
+Features calibrated severity levels, excellent anti-nitpicking rules, GitHub integration (fetch diff + post reviews), deep Android/Kotlin expertise, and mentoring tone.
 
 [Details →](github/android-pr-review/README.md)
 
@@ -42,3 +35,7 @@ The original detailed version under the longer name.
 Add skills in category folders (e.g. `github/`). Each skill needs a `SKILL.md` with proper YAML frontmatter (`name` + `description`).
 
 For Copilot CLI compatibility, the `name` in frontmatter determines the `/slash-command`.
+
+## About
+
+A repo for skills to use in AI Agents
