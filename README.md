@@ -14,6 +14,13 @@ A well-calibrated, realistic code review skill that acts like an experienced tea
 
 ```bash
 # Install the skill directly
+/skills install stani76/ai-skills android-pr-review
+```
+
+#### Installation (GitHub CLI)
+
+```bash
+# Install via github CLI
 gh skill install stani76/ai-skills android-pr-review
 ```
 
@@ -30,10 +37,6 @@ gh skill install stani76/ai-skills android-pr-review
 - Trigger naturally: "Review this PR as senior Android engineer"
 
 See full details in [github/android-pr-review/README.md](github/android-pr-review/README.md)
-
-## Contributing
-
-Feel free to add more skills following the same structure. PRs welcome!
 
 ## License
 
