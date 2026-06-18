@@ -11,14 +11,28 @@ Performs realistic senior-engineer code reviews with:
 - Clear severity classification (Blocker / Should Fix / Nit / Informational)
 - Strong anti-nitpicking calibration rules
 - Mentoring, respectful tone that acknowledges good work
-- Smart output formatting (lightweight unless there are real issues)
+- Smart output formatting (lightweight unless there are real issues; JSON offered or auto-included on request)
 - Deep knowledge of modern Android, Kotlin, Jetpack Compose, coroutines, architecture, and security
 
 ## GitHub Superpowers
 
 When GitHub is connected, this skill can:
 - Automatically fetch the real diff of a PR (`owner/repo` + PR number or URL)
-- Help you post full reviews or precise inline comments directly on the PR
+- If you explicitly ask, help draft or post reviews or precise inline comments directly on the PR (confirmation always required before any write)
+
+## Options
+
+### Structured JSON Output
+By default the skill returns a clear findings table (or lightweight list) plus a raw "AI Agent prompt" when there are real issues.
+
+- A structured JSON version of the findings is **offered at the end**.
+- Say something like "add JSON", "in JSON format", "structured output", "machine readable", or "export as JSON" in your request and it will be included automatically (no offer needed).
+
+### Posting to GitHub
+The skill does **not** proactively offer to post comments or reviews.
+
+- It will only help post if you explicitly ask (e.g. "post this", "add these comments to the PR", "help me post a review").
+- Confirmation is always required before any write to GitHub.
 
 ## Trigger examples
 
@@ -26,6 +40,10 @@ When GitHub is connected, this skill can:
 - "Do a code review on this Kotlin diff"
 - "PR review #142 in my-org/my-app"
 - "Analyze this Compose change for issues"
+
+**With options:**
+- "Review this PR and add JSON"
+- "Review this and post the comments to the PR"
 
 ## Files
 
@@ -50,11 +68,11 @@ MIT
 
 **Validation:** URLs are parsed safely (github.com only); owner/repo/pullNumber are range/pattern validated; raw diffs are detected by markers. Out-of-schema input produces a structured error and aborts.
 
-**Primary outputs:** Severity-classified findings (markdown table or lightweight list) + (when real issues exist) structured JSON findings + optional raw "AI Agent prompt" for follow-up fixes.
+**Primary outputs:** Severity-classified findings (markdown table or lightweight list) + raw "AI Agent prompt" for follow-up fixes (when real issues exist). A structured JSON version is offered at the end (or included automatically if you request it upfront using flexible phrasing such as "add JSON", "structured output", etc.).
 
-**Maximum output size:** 10,000 characters for the complete findings output (table/list + JSON + agent prompt). Prioritizes all Blockers/Should-Fix; truncates lower severity with note.
+**Maximum output size:** 10,000 characters for the complete findings output (table/list + agent prompt, plus JSON if included). Prioritizes all Blockers/Should-Fix; truncates lower severity with note.
 
-**Scope — can:** Read PR metadata/diffs/comments via connected GitHub tools; post at most one review (or set of inline comments) on the single target PR per invocation.
+**Scope — can:** Read PR metadata/diffs/comments via connected GitHub tools. Can post reviews/comments only when you explicitly request it (at most one review or set of inline comments per invocation, with confirmation).
 
 **Scope — cannot:** Merge, close, approve without confirmation, push commits, modify source files, or act on any PR other than the referenced one.
 

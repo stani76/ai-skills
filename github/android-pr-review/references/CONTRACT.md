@@ -27,8 +27,8 @@ Parameter types: owner (string), repo (string), pullNumber (positive integer), r
 
 When Blockers or Should-Fix exist:
 - Markdown table (Severity | Line | Code | Issue | Suggested Fix)
-- Structured JSON (see below)
 - Raw markdown "AI Agent prompt" (mentoring/fix instructions)
+- Structured JSON version of the findings (see below) — provided automatically if the user requests it at the start, or offered at the end otherwise.
 
 When only Nits/Informational:
 - Lightweight bullet list
