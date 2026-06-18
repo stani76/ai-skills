@@ -1,6 +1,6 @@
 # Contract for android-pr-review
 
-This document defines the skill's contract per the Crestron Skill Compliance Checklist (Appendix C).
+This document defines the skill's contract, including input and output schemas, scope boundaries, and operational constraints, to align with industry standards for agent skills.
 
 ## Input Schema
 
