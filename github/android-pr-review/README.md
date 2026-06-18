@@ -38,8 +38,26 @@ Most generic "review my code" prompts either nitpick too much or miss important 
 
 ## License
 
-MIT (or same as the repo) — feel free to use, modify, and share.
+MIT
 
 ---
 
 *Contributed as the first skill in the ai-skills repository.*
+
+## Input / Output Contract (for humans)
+
+**Inputs accepted:** GitHub PR URL (including /changes views), `owner/repo#N`, or raw diff text.
+
+**Validation:** URLs are parsed safely (github.com only); owner/repo/pullNumber are range/pattern validated; raw diffs are detected by markers. Out-of-schema input produces a structured error and aborts.
+
+**Primary outputs:** Severity-classified findings (markdown table or lightweight list) + (when real issues exist) structured JSON findings + optional raw "AI Agent prompt" for follow-up fixes.
+
+**Maximum output size:** 10,000 characters for the complete findings output (table/list + JSON + agent prompt). Prioritizes all Blockers/Should-Fix; truncates lower severity with note.
+
+**Scope — can:** Read PR metadata/diffs/comments via connected GitHub tools; post at most one review (or set of inline comments) on the single target PR per invocation.
+
+**Scope — cannot:** Merge, close, approve without confirmation, push commits, modify source files, or act on any PR other than the referenced one.
+
+**Dependencies:** Connected GitHub MCP tools (pull_request_read, search_connected_tools, pull_request_review_write, add_comment_to_pending_review).
+
+See SKILL.md for the full review process. See references/CONTRACT.md and references/EVALUATIONS.md for the complete machine-readable contract and test cases.
