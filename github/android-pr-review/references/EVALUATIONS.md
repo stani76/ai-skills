@@ -1,6 +1,6 @@
 # Evaluations for android-pr-review
 
-This document provides concrete evaluation cases for the Crestron Skill Compliance Checklist (C3) and related requirements. As a prompt-only skill (no executable scripts or code), traditional unit-test line coverage is N-A.
+This document provides concrete evaluation cases for the skill's test and evaluation requirements. As a prompt-only skill (no executable scripts or code), traditional unit-test line coverage is N-A.
 
 ## N-A Justifications for C3 Items
 - Unit tests present: all input validation paths, happy path, and error paths — 90%+ line coverage (N-A): This skill consists solely of natural-language instructions in SKILL.md. There is no executable source code, scripts/, or testable implementation to achieve line coverage.
